@@ -6,8 +6,12 @@ function returnValue () {
     const numberChange = Number(howMany);
     var pageMaker = "";  
     for (var i = 0; i < numberChange; i++) {
-        pageMaker +=`div.t-row:nth-of-type(${i+1}) a.clickable`;
-        pageMaker += ", "
+        if (i < numberChange -1) {
+            pageMaker +=`div.t-row:nth-of-type(${i+1}) a.clickable, `;
+        }
+        else {
+            pageMaker += `div.t-row:nth-of-type(${i+1}) a.clickable`;
+        }
     }
     pageMaker = pageMaker.slice(0, -2); 
     document.getElementById("exampleFormControlTextarea1").value ='{"_id":"'+name+'","startUrl":["https://petition.parliament.mn/petition"],"selectors":[{"id":"wrapper","parentSelectors":["_root"],"type":"SelectorLink","selector":"'+ pageMaker +
